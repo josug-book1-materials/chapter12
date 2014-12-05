@@ -7,10 +7,12 @@ yum update -q -y ca-certificates --disablerepo=epel
 yum update -q -y
 
 echo 'Installing ruby'
-rpm -ivh rpm/ruby-2.1.3.el6.x86_64.rpm
 yum groupinstall -q -y 'Development Tools'
-yum install -q -y readline-devel openssl-devel
-
+yum install -q -y gcc make git parted readline-devel\
+python-devel python-crypto python-pip mysql-devel \
+libxml2 libxml2-devel libxslt libxslt-devel \
+libffi libffi-devel openssl-devel libyaml libyaml-devel
+rpm -ivh rpm/ruby-2.1.3.el6.x86_64.rpm
 
 echo 'Installing fog and chef'
 echo "install: --no-document" >> ~/.gemrc 
