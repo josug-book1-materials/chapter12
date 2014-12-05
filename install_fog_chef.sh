@@ -26,6 +26,6 @@ chmod 600 /etc/sudoers.d/chef
 
 echo 'Getting cookbooks'
 su - chef -c 'cd $HOME; git clone https://github.com/josug-book1-materials/chapter12.git'
-su - chef -c 'cd $HOME/chapter12/chef-repo-openstack-sample; berks vendor cookbooks'
+su - chef -c 'cd $HOME/chapter12/chef-repo-sample-app; berks vendor cookbooks'
 
 echo "##### Building environment completed #####"
