@@ -1,0 +1,51 @@
+- provider: AWS
+  name: db
+  flavor_id: t2.micro
+  image_id: ami-94cdcd95
+  key_name: awskey01
+  key_file: /home/chef/awskey01.pem
+  network: subnet-f4fbea80
+  security_groups:
+    - sg-all-from-internal
+  role: db
+- provider: AWS
+  name: web1
+  flavor_id: t2.micro
+  image_id: ami-94cdcd95
+  key_name: awskey01
+  key_file: /home/chef/awskey01.pem
+  network: subnet-f4fbea80
+  security_groups:
+    - sg-all-from-internal
+  role: web
+- provider: AWS
+  name: web2
+  flavor_id: t2.micro
+  image_id: ami-94cdcd95
+  key_name: awskey01
+  key_file: /home/chef/awskey01.pem
+  network: subnet-f4fbea80
+  security_groups:
+    - sg-all-from-internal
+  role: web
+- provider: AWS
+  name: app1
+  flavor_id: t2.micro
+  image_id: ami-94cdcd95
+  key_name: awskey01
+  key_file: /home/chef/awskey01.pem
+  network: subnet-f4fbea80
+  security_groups:
+    - sg-all-from-internal
+  role: app
+- provider: AWS
+  name: lb1
+  flavor_id: t2.micro
+  image_id: ami-94cdcd95
+  key_name: awskey01
+  key_file: /home/chef/awskey01.pem
+  network: subnet-f4fbea80
+  security_groups:
+    - sg-all-from-internal
+    - sg-http-from-external
+  role: lb

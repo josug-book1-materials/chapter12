@@ -1,0 +1,5 @@
+chef-repo-sample-app/Berksfile.lock
+chef-repo-sample-app/clients/
+chef-repo-sample-app/cookbooks/
+chef-repo-sample-app/nodes/*.json
+etc/openrc

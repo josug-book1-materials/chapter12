@@ -1,0 +1,9 @@
+{
+  "name": "lb",
+  "description": "LB role",
+  "run_list": [
+    "recipe[selinux::disabled]",
+    "recipe[nginx]",
+    "recipe[iptables::disabled]"
+  ]
+}
