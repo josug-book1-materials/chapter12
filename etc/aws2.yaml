@@ -1,10 +1,10 @@
 - provider: AWS
   name: db
   flavor_id: t2.micro
-  image_id: ami-94cdcd95
+  image_id: ami-13614b12
   key_name: awskey01
   key_file: /home/chef/awskey01.pem
-  network: subnet-f4fbea80
+  network: subnet-d59555a2
   security_groups:
-    - sg-all-from-internal
+    - sg_all_from_internal
   role: db

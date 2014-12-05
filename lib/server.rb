@@ -48,13 +48,13 @@ end
 module OpenstackApi
   def create
     api.servers.create(
-      :name => @name,
-      :flavor_ref => @flavor_id,
-      :image_ref => @image_id,
-      :key_name => @key_name,
+      :name              => @name,
+      :flavor_ref        => @flavor_id,
+      :image_ref         => @image_id,
+      :key_name          => @key_name,
       :availability_zone => @availability_zone,
-      :nics => [nic],
-      :security_groups => @security_groups,
+      :nics              => [{ "net_id" => @network }],
+      :security_groups   => @security_groups
     )
   end
 
@@ -65,28 +65,13 @@ module OpenstackApi
   private
   def api
     Fog::Compute.new({
-        :provider            => @provider,
-        :openstack_auth_url  => ENV['OS_AUTH_URL'] || "",
-        :openstack_username  => ENV['OS_USERNAME'] || "",
-        :openstack_tenant    => ENV['OS_TENANT_NAME'] || "",
-        :openstack_api_key   => ENV['OS_API_KEY'] || "",
-        :openstack_region    => ENV['OS_REGION_NAME'] || ""
+        :provider           => @provider,
+        :openstack_auth_url => ENV['OS_AUTH_URL'] || "",
+        :openstack_username => ENV['OS_USERNAME'] || "",
+        :openstack_tenant   => ENV['OS_TENANT_NAME'] || "",
+        :openstack_api_key  => ENV['OS_API_KEY'] || "",
+        :openstack_region   => ENV['OS_REGION_NAME'] || ""
     })
-  end
-
-  def network_api
-    Fog::Network.new({
-        :provider            => @provider,
-        :openstack_auth_url  => ENV['OS_AUTH_URL'] || "",
-        :openstack_username  => ENV['OS_USERNAME'] || "",
-        :openstack_tenant    => ENV['OS_TENANT_NAME'] || "",
-        :openstack_api_key   => ENV['OS_API_KEY'] || "",
-        :openstack_region    => ENV['OS_REGION_NAME'] || "",
-    })
-  end
-
-  def nic
-    { "net_id" => network_api.networks.all(:name => @network).first.id }
   end
 end
 
@@ -104,7 +89,7 @@ module AwsApi
   end
 
   def ip_address
-    @ip_address ||= api.servers.find { |s| s.tags['Name'] == @name }.private_ip_address
+    @ip_address ||= api.servers.find { |s| s.tags['Name'] == @name && s.state != "terminated" }.private_ip_address
   end
 
   private
