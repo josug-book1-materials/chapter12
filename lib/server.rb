@@ -13,6 +13,7 @@ class Server
       server = Server.new(server_option)
       server.create
       servers.push(server)
+      puts "Created server #{server.name}"
     end
     servers
   end
