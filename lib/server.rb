@@ -86,7 +86,6 @@ module AwsApi
       :flavor_id => @flavor,
       :image_id => @image_id,
       :key_name => @key_name,
-      :availablity_zone => @availability_zone,
       :subnet_id => @network_id,
       :security_group_ids => security_group_ids
     )

@@ -1,5 +1,5 @@
 - provider: AWS
-  name: dbxxx
+  name: db
   flavor: t2.micro
   image_id: ami-13614b12
   key_name: awskey01
@@ -9,7 +9,7 @@
     - sg_all_from_internal
   role: db
 - provider: AWS
-  name: web1xxx
+  name: web1
   flavor: t2.micro
   image_id: ami-13614b12
   key_name: awskey01
@@ -19,7 +19,7 @@
     - sg_all_from_internal
   role: web
 - provider: AWS
-  name: web2xxx
+  name: web2
   flavor: t2.micro
   image_id: ami-13614b12
   key_name: awskey01
@@ -29,7 +29,7 @@
     - sg_all_from_internal
   role: web
 - provider: AWS
-  name: app1xxx
+  name: app1
   flavor: t2.micro
   image_id: ami-13614b12
   key_name: awskey01
@@ -39,7 +39,7 @@
     - sg_all_from_internal
   role: app
 - provider: AWS
-  name: lb1xxx
+  name: lb1
   flavor: t2.micro
   image_id: ami-13614b12
   key_name: awskey01
