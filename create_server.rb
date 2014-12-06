@@ -1,5 +1,6 @@
 $:.unshift File.dirname(__FILE__)
 require 'lib/server.rb'
+require 'lib/helper.rb'
 
 servers = Server.create_from_file(ARGV[0])
 servers.each do |server| 
@@ -7,7 +8,7 @@ servers.each do |server|
     if server.ip_address.nil?
        sleep(5)
     else
-      puts server.to_yaml.sub(/^\-\-\- \|\n/,"").sub(/^ *--- !ruby\/object:.*\n/,"").sub(/^ */," - ").gsub(/\n/,"\n   ").gsub(/^ *$/,"")
+      print_out server.to_yaml
       break
     end
   end

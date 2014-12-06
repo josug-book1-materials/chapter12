@@ -59,7 +59,7 @@ module OpenstackApi
   end
 
   def ip_address
-    @ip_address ||= (n=api.servers.find { |s| s.name == @name }.addresses[network]) && n[0]['addr']
+    @ip_address ||= (address=api.servers.find { |s| s.name == @name }.addresses.shift) && address[1][0]['addr']
   end
 
   private
@@ -74,23 +74,8 @@ module OpenstackApi
     })
   end
 
-  def network_api
-    Fog::Network.new({
-        :provider            => @provider,
-        :openstack_auth_url  => ENV['OS_AUTH_URL'] || "",
-        :openstack_username  => ENV['OS_USERNAME'] || "",
-        :openstack_tenant    => ENV['OS_TENANT_NAME'] || "",
-        :openstack_api_key   => ENV['OS_API_KEY'] || "",
-        :openstack_region    => ENV['OS_REGION_NAME'] || "",
-    })
-  end
-
   def flavor_id
     api.flavors.find { |f| f.name == @flavor }.id
-  end
-
-  def network
-    network_api.networks.all(:id => @network_id).first.name
   end
 end
 
