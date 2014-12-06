@@ -21,13 +21,13 @@ echo "update:  --no-document" >> ~/.gemrc
 gem install bundler
 bundle install
 
-useradd chef
-echo 'chef ALL=(ALL) ALL' > /etc/sudoers.d/chef
-chmod 600 /etc/sudoers.d/chef
+useradd fog
+echo 'chef ALL=(ALL) ALL' > /etc/sudoers.d/fog
+chmod 600 /etc/sudoers.d/fog
 
 
 echo 'Getting cookbooks'
-su - chef -c 'cd $HOME; git clone https://github.com/josug-book1-materials/chapter12.git'
-su - chef -c 'cd $HOME/chapter12/chef-repo-sample-app; berks vendor cookbooks'
+su - fog -c 'cd $HOME; git clone https://github.com/josug-book1-materials/chapter12.git'
+su - fog -c 'cd $HOME/chapter12/chef-repo-sample-app; berks vendor cookbooks'
 
 echo "##### Building environment completed #####"
