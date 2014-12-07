@@ -1,7 +1,7 @@
 # OpenStack
-export OS_AUTH_URL='http://192.168.100.10:5000/v2.0/tokens'
+export OS_AUTH_URL='http://192.168.100.10:5000/v2.0/'
 export OS_USERNAME='snsapp-infra-user'
-export OS_API_KEY='passw0rd'
+export OS_PASSWORD='passw0rd'
 export OS_TENANT_NAME='SNSApp'
 export OS_REGION_NAME='RegionOne'
 
