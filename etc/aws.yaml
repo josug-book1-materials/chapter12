@@ -1,51 +1,50 @@
 - provider: AWS
-  name: db
+  name: db1
   flavor: t2.micro
   image_id: ami-13614b12
-  key_name: awskey01
-  key_file: /home/chef/awskey01.pem
+  key_name: key-aws
+  key_file: /home/fog/key-aws.pem
   network_id: subnet-d59555a2
   security_groups:
-    - sg_all_from_internal
+    - sg-for-fog
   role: db
 - provider: AWS
   name: web1
   flavor: t2.micro
   image_id: ami-13614b12
-  key_name: awskey01
-  key_file: /home/chef/awskey01.pem
+  key_name: key-aws
+  key_file: /home/fog/key-aws.pem
   network_id: subnet-d59555a2
   security_groups:
-    - sg_all_from_internal
+    - sg-for-fog
   role: web
 - provider: AWS
   name: web2
   flavor: t2.micro
   image_id: ami-13614b12
-  key_name: awskey01
-  key_file: /home/chef/awskey01.pem
+  key_name: key-aws
+  key_file: /home/fog/key-aws.pem
   network_id: subnet-d59555a2
   security_groups:
-    - sg_all_from_internal
+    - sg-for-fog
   role: web
 - provider: AWS
   name: app1
   flavor: t2.micro
   image_id: ami-13614b12
-  key_name: awskey01
-  key_file: /home/chef/awskey01.pem
+  key_name: key-aws
+  key_file: /home/fog/key-aws.pem
   network_id: subnet-d59555a2
   security_groups:
-    - sg_all_from_internal
+    - sg-for-fog
   role: app
 - provider: AWS
   name: lb1
   flavor: t2.micro
   image_id: ami-13614b12
-  key_name: awskey01
-  key_file: /home/chef/awskey01.pem
+  key_name: key-aws
+  key_file: /home/fog/key-aws.pem
   network_id: subnet-d59555a2
   security_groups:
-    - sg_all_from_internal
-    - sg_http_from_external
+    - sg-for-fog
   role: lb
