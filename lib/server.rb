@@ -66,10 +66,10 @@ module OpenstackApi
   def api
     Fog::Compute.new({
         :provider           => @provider,
-        :openstack_auth_url => ENV['OS_AUTH_URL'] || "",
+        :openstack_auth_url => ENV['OS_AUTH_URL'] + "/tokens",
         :openstack_username => ENV['OS_USERNAME'] || "",
         :openstack_tenant   => ENV['OS_TENANT_NAME'] || "",
-        :openstack_api_key  => ENV['OS_API_KEY'] || "",
+        :openstack_api_key  => ENV['OS_PASSWORD'] || "",
         :openstack_region   => ENV['OS_REGION_NAME'] || ""
     })
   end
