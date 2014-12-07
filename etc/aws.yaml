@@ -6,7 +6,7 @@
   key_file: /home/fog/key-aws.pem
   network_id: subnet-d59555a2
   security_groups:
-    - sg-for-fog
+    - sg_for_fog
   role: db
 - provider: AWS
   name: web1
@@ -16,7 +16,7 @@
   key_file: /home/fog/key-aws.pem
   network_id: subnet-d59555a2
   security_groups:
-    - sg-for-fog
+    - sg_for_fog
   role: web
 - provider: AWS
   name: web2
@@ -26,7 +26,7 @@
   key_file: /home/fog/key-aws.pem
   network_id: subnet-d59555a2
   security_groups:
-    - sg-for-fog
+    - sg_for_fog
   role: web
 - provider: AWS
   name: app1
@@ -36,7 +36,7 @@
   key_file: /home/fog/key-aws.pem
   network_id: subnet-d59555a2
   security_groups:
-    - sg-for-fog
+    - sg_for_fog
   role: app
 - provider: AWS
   name: lb1
@@ -46,5 +46,5 @@
   key_file: /home/fog/key-aws.pem
   network_id: subnet-d59555a2
   security_groups:
-    - sg-for-fog
+    - sg_for_fog
   role: lb
