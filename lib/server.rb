@@ -59,7 +59,9 @@ module OpenstackApi
   end
 
   def ip_address
-    @ip_address ||= (address=api.servers.find { |s| s.name == @name }.addresses.shift) && address[1][0]['addr']
+    @ip_address ||= (address=api.servers.find { |s| 
+                               s.name == @name
+                             }.addresses.shift) && address[1][0]['addr']
   end
 
   private
@@ -92,7 +94,9 @@ module AwsApi
   end
 
   def ip_address
-    @ip_address ||= api.servers.find { |s| s.tags['Name'] == @name && s.state != "terminated" }.private_ip_address
+    @ip_address ||= api.servers.find { |s| 
+                      s.tags['Name'] == @name && s.state != "terminated" 
+                    }.private_ip_address
   end
 
   private
