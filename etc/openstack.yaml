@@ -2,7 +2,7 @@
   name: db1
   flavor: standard.xsmall
   image_id: 84ab092f-8e0a-42ba-a820-51fc40d07e72
-  key_name: key-opentack
+  key_name: key-openstack
   key_file: /home/fog/key-openstack.pem
   availability_zone: az1
   network_id: 9ef02f9c-cff0-40b8-a25d-1ecd9e9a7694
@@ -13,7 +13,7 @@
   name: web1
   flavor: standard.xsmall
   image_id: 84ab092f-8e0a-42ba-a820-51fc40d07e72
-  key_name: key-opentack
+  key_name: key-openstack
   key_file: /home/fog/key-openstack.pem
   availability_zone: az2
   network_id: 9ef02f9c-cff0-40b8-a25d-1ecd9e9a7694
@@ -24,7 +24,7 @@
   name: web2
   flavor: standard.xsmall
   image_id: 84ab092f-8e0a-42ba-a820-51fc40d07e72
-  key_name: key-opentack
+  key_name: key-openstack
   key_file: /home/fog/key-openstack.pem
   availability_zone: az1
   network_id: 9ef02f9c-cff0-40b8-a25d-1ecd9e9a7694
@@ -35,7 +35,7 @@
   name: app1
   flavor: standard.xsmall
   image_id: 84ab092f-8e0a-42ba-a820-51fc40d07e72
-  key_name: key-opentack
+  key_name: key-openstack
   key_file: /home/fog/key-openstack.pem
   availability_zone: az2
   network_id: 9ef02f9c-cff0-40b8-a25d-1ecd9e9a7694
@@ -46,7 +46,7 @@
   name: lb1
   flavor: standard.xsmall
   image_id: 84ab092f-8e0a-42ba-a820-51fc40d07e72
-  key_name: key-opentack
+  key_name: key-openstack
   key_file: /home/fog/key-openstack.pem
   availability_zone: az1
   network_id: 9ef02f9c-cff0-40b8-a25d-1ecd9e9a7694
