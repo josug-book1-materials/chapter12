@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 WORK_DIR=$HOME/work_chapter
 
