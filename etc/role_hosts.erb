@@ -1,4 +1,4 @@
-<%
+<%-
    hosts = {}
    @servers.each do |server|
      if hosts[server.role].nil?
@@ -7,8 +7,7 @@
         hosts[server.role].push server.ip_address
      end
    end
-%>
-<% hosts.each do | role, ip_address | %>
-default['openstack-sample']['<%= role %>_hosts'] = <%= ip_address %>
-<% end %>
-
+-%>
+<%- hosts.each do | role, ip_addresses | -%>
+default['<%= ENV["COOKBOOK"] %>']['<%= role %>_hosts'] = <%= ip_addresses %>
+<%- end -%>

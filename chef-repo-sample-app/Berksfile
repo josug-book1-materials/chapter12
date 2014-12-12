@@ -5,6 +5,6 @@ cookbook 'python'
 cookbook 'mysql'
 cookbook 'iptables'
 cookbook 'database'
-cookbook 'nginx', git: 'https://github.com/josug-book1-materials/nginx.git'
-cookbook 'openstack-sample', git: 'https://github.com/josug-book1-materials/cookbook-openstack-sample.git'
+cookbook 'nginx'
+cookbook 'sample-app', git: 'https://github.com/josug-book1-materials/cookbook-sample-app.git'
 

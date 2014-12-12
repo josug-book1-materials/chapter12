@@ -20,7 +20,7 @@ patch-fog ディレクトリに格納されているのは Fog に対するパ�
 
 * chef-repo
 
-chef-repo-openstack-sample ディレクトリに格納されているのは12章用のChefを扱うためのChef-Repoです。
+chef-repo-sample-app ディレクトリに格納されているのは12章用のChefを扱うためのChef-Repoです。
 
 その他のレポジトリ
 ----
@@ -29,11 +29,7 @@ chef-repo-openstack-sample ディレクトリに格納されているのは12章
 
 * cookbook-opensatck-sample
 
-    https://github.com/josug-book1-materials/cookbook-openstack-sample
-
-* nginx
-
-    https://github.com/josug-book1-materials/nginx
+    https://github.com/josug-book1-materials/cookbook-sample-app
 
 Berkshelf によるクックブック取得
 ---
@@ -49,8 +45,8 @@ cookbook 'python'
 cookbook 'mysql'
 cookbook 'iptables'
 cookbook 'database'
-cookbook 'nginx', git: 'https://github.com/josug-book1-materials/nginx.git'
-cookbook 'openstack-sample', git: 'https://github.com/josug-book1-materials/cookbook-openstack-sample.git'
+cookbook 'nginx'
+cookbook 'sample-app', git: 'https://github.com/josug-book1-materials/cookbook-sample-app.git'
 ```
 
 作成した Berksfile を元に berks コマンドでクックブックを取得するために下記のコマンドを実行する。
