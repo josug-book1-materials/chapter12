@@ -90,7 +90,8 @@ module AwsApi
       :image_id => @image_id,
       :key_name => @key_name,
       :subnet_id => @network_id,
-      :security_group_ids => security_group_ids
+      :security_group_ids => security_group_ids,
+      :associate_public_ip => true
     )
   end
 
