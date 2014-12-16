@@ -42,7 +42,7 @@ source "https://supermarket.getchef.com"
 
 cookbook 'selinux'
 cookbook 'python'
-cookbook 'mysql'
+cookbook 'mysql', '< 6.0.0'
 cookbook 'iptables'
 cookbook 'database'
 cookbook 'nginx'
