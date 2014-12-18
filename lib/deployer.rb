@@ -29,8 +29,8 @@ class Deployer
   private
   def _deploy_server(server)
     task = "knife zero bootstrap --no-host-key-verify #{server.ip_address} -N #{server.name} -r 'role[#{server.role}]' -x root -i #{server.key_file}"
-    logfile = "/tmp/#{server.name}_bootstrap.log 2>&1"
-    Open3.capture3("#{task} > #{logfile}", :chdir => "#{ENV['CHEF_REPO']}")
+    logfile = "/tmp/#{server.name}_bootstrap.log"
+    Open3.capture3("#{task} > #{logfile} 2>&1", :chdir => "#{ENV['CHEF_REPO']}")
     puts "deploy finished => #{server.name}"
     puts "check logfile => more #{logfile}"
   end
