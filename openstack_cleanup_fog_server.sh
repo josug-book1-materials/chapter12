@@ -4,8 +4,12 @@ WORK_DIR=$HOME/work_chapter
 
 get_uuid () { cat - | grep " id " | awk '{print $4}'; }
 
+# Retrieve assigned IP addresses to release a floating IP
+addrs=`nova show fog-server | grep fog-net | cut -d '|' -f 3 | sed -e 's/  *//g'`
+
 for server in `nova list | grep " fog-server " | awk '{print $2}'`; do
   nova delete $server
+  echo "Deleted fog-server ($server)"
 done
 while true; do
   nova list | grep -q " fog-server "
@@ -25,10 +29,16 @@ for sg in `neutron security-group-list | grep " sg-for-fog " | awk '{print $2}'`
 done
 for key in `nova keypair-list | grep key-openstack | awk '{print $2}'`; do
   nova keypair-delete key-openstack
+  echo "Deleted keypair key-openstack"
 done
 
-for fip in `nova floating-ip-list | awk '{if ($6 == "-") print $2;}'`; do
-  nova floating-ip-delete $fip
+for fip in `nova floating-ip-list | awk -F '|' '{print $2,$4}' | awk '{if ($2 == "-") print $1;}'`; do
+  for addr in ${addrs//,/ }; do
+    if [ "$fip" = "$addr" ]; then
+      nova floating-ip-delete $fip
+      echo "Deleted floating IP $fip"
+    fi
+  done
 done
 
 echo "### keypair"
@@ -42,7 +52,3 @@ echo "### security group"
 neutron security-group-list
 echo "### floating IP"
 nova floating-ip-list
-
-#MY_FOG_NET=`neutron net-show fog-net | get_uuid`
-#FIP=`nova floating-ip-create | awk '{if ($6 == "-") print $2}'`
-#nova floating-ip-associate fog-server $FIP

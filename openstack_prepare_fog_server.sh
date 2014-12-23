@@ -1,9 +1,15 @@
 #!/bin/bash
 
+if nova list | grep fog-server; then
+  echo "fog-server already exists."
+  exit 1
+fi
+
 WORK_DIR=$HOME/work_chapter
 
 get_uuid () { cat - | grep " id " | awk '{print $4}'; }
 
+mkdir -p $WORK_DIR
 nova keypair-add key-openstack | tee $WORK_DIR/key-openstack.pem
 chmod 600 $WORK_DIR/key-openstack.pem
 
@@ -51,7 +57,7 @@ for i in `seq 0 $MAX_LOOP`; do
   sleep $INTERVAL
 done
 
-FIP=`nova floating-ip-create | awk '{if ($6 == "-") print $2}'`
+FIP=`nova floating-ip-create Ext-Net | awk -F '|' '{print $2,$4}' | awk '{if ($2 == "-") print $1;}'`
 nova floating-ip-associate fog-server $FIP
 
 echo "### fog-server ($FIP) is launched."
