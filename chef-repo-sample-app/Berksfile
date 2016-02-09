@@ -3,7 +3,7 @@ source "https://supermarket.getchef.com"
 cookbook 'selinux'
 cookbook 'python'
 cookbook 'mysql', '< 6.0.0'
-cookbook 'iptables'
+cookbook 'iptables', '= 1.1.0'
 cookbook 'database', '< 3.0.0'
 cookbook 'mysql-chef_gem', '= 0.0.5'
 cookbook 'nginx'
