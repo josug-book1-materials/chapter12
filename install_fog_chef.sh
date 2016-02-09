@@ -22,7 +22,7 @@ gem install bundler
 bundle install
 
 useradd fog
-echo 'chef ALL=(ALL) ALL' > /etc/sudoers.d/fog
+echo 'fog ALL=(ALL) ALL' > /etc/sudoers.d/fog
 chmod 600 /etc/sudoers.d/fog
 
 
